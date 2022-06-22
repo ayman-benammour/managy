@@ -21,6 +21,8 @@
     <!-- Tailwindcss -->
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/>
     <!-- Styles -->
+    <link rel="stylesheet" href="./assets/styles/reset.css">
+    <link rel="stylesheet" href="./assets/styles/style.css">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
         .font-family-karla { font-family: karla; }
@@ -29,11 +31,9 @@
         .upgrade-btn { background: #1947ee; }
         .upgrade-btn:hover { background: #0038fd; }
         .active-nav-link { background: #7e3af2; }
-        .nav-item:hover { background: #6728d3; }
+        .nav-item:hover { background: #7e3af2; }
         .account-link:hover { background: #3d68ff; }
     </style>
-    <link rel="stylesheet" href="./assets/styles/reset.css">
-    <link rel="stylesheet" href="./assets/styles/style.css">
     <!-- Title -->
     <title>Managy</title>
 </head>

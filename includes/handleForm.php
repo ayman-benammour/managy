@@ -3,6 +3,7 @@
 $name = '';
 $price = 0;
 $dateText = '';
+$category = '';
 
 $errorMessages = [];
 
@@ -46,9 +47,15 @@ if(!empty($_POST))
     {
         $errorMessages[] = 'Missing date';
     }
-    else if(strlen($dateText) > 20)
+
+    // Category
+    if(empty($category))
     {
-        $errorMessages[] = 'Price should be 20 chars long max';
+        $errorMessages[] = 'Missing category';
+    }
+    else if(!array_key_exists($category, $categories))
+    {
+        $errorMessages[] = 'Wrong category';
     }
 
     // Success
@@ -57,19 +64,21 @@ if(!empty($_POST))
         // Insert into DB
         $prepare = $pdo->prepare('
             INSERT INTO
-                expenses (name, price, date)
+                expenses (name, price, date, category)
             VALUES
-                (:name, :price, :date)
+                (:name, :price, :date, :category)
         ');
         $prepare->execute([
             'name' => $name,
             'price' => $price,
             'date' => $dateText,
+            'category' => $category,
         ]);
 
         // Reset values
         $name = '';
         $price = 0;
         $dateText = '';
+        $category = '';
     }
 }
